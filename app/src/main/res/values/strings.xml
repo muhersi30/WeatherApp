@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">WeatherApp</string>
+    <string name="app_name">Weather Factor</string>
+
+    <string name="place_name">St. Paul, MN</string>
+    <string name="temperature_value">72°</string>
+    <string name="feels_like">Feels like</string>
+
+    <string name="low">Low</string>
+    <string name="high">High</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+
+    <!-- I have kept these values separate because in future these will be variables -->
+    <string name="feels_like_value">78°</string>
+    <string name="low_value">65°</string>
+    <string name="high_value">80°</string>
+    <string name="humidity_value">100%</string>
+    <string name="pressure_value">1023 hPa</string>
 </resources>

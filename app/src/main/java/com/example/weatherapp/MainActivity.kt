@@ -8,6 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Setting name of app in title bar
         getSupportActionBar()?.setTitle(R.string.app_name);
     }
 }

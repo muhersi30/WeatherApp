@@ -16,5 +16,7 @@
     <string name="high_value">80°</string>
     <string name="humidity_value">100%</string>
     <string name="pressure_value">1023 hPa</string>
-
+    
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

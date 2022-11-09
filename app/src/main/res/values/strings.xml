@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Weather Factor</string>
 
-    <string name="place_name">St. Paul, MN</string>
+    <string name="place_name">Islamabad</string>
     <string name="temperature_value">72°</string>
     <string name="feels_like">Feels like</string>
 

@@ -1,5 +1,6 @@
 package com.example.weatherapp
 
+import android.annotation.SuppressLint
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.time.Instant
@@ -24,6 +25,14 @@ public class getDateAndTime {
             return forecastDateStringFormatNew.format(dateToBeParsed)
         }
 
+        @SuppressLint("SimpleDateFormat")
+        fun convertLongToTime (time: Long): String {
+            val date = Date(time)
+            val format = SimpleDateFormat("hh:mm")
+            return format.format(date)
+        }
+
+        @SuppressLint("SimpleDateFormat")
         public fun getTime(l: Long): String {
             var forecastDate: LocalDateTime = LocalDateTime.ofInstant(
                 Instant.ofEpochMilli(l),

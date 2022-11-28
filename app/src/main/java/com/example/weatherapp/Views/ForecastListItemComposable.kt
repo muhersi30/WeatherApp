@@ -75,13 +75,13 @@ fun ForecastListItem(city: City, forecastDTO: ForecastDTO,weather: Weather) {
                     .align(Alignment.CenterVertically)
             ) {
                 Text(
-                    "Temp: " + forecastDTO.main.temp, fontSize = 14.sp,
+                    "Temp: " + forecastDTO.main.temp + "°", fontSize = 14.sp,
                     modifier = Modifier
                         .padding(top = 5.dp)
                         .padding(start = 10.dp)
                 )
                 Text(
-                    "High: " + forecastDTO.main.tempMax + " Low: " + forecastDTO.main.tempMin,
+                    "High: " + forecastDTO.main.tempMax + "°" + " Low: " + forecastDTO.main.tempMin + "°",
                     fontSize = 14.sp,
                     modifier = Modifier
                         .padding(top = 5.dp)

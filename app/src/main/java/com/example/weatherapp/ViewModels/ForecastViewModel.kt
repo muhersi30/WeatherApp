@@ -17,12 +17,19 @@ class ForecastViewModel @Inject constructor(private val forecastRepository: Fore
 
     val _state: MutableState<Resource<List<ForecastModel>>?> = mutableStateOf(null)
 
-    init {
+//    init {
+//        viewModelScope.launch {
+//            forecastRepository.getForecast().collect {
+//                _state.value = it
+//            }
+//        }
+//    }
+
+    fun getForecast(lat: Double, long: Double) {
         viewModelScope.launch {
-            forecastRepository.getForecast().collect {
+            forecastRepository.getForecast(latt = lat, longg = long).collect {
                 _state.value = it
             }
         }
     }
-
 }

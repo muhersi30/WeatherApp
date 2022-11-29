@@ -22,16 +22,26 @@ import com.example.weatherapp.ViewModels.ForecastViewModel
 @SuppressLint("SuspiciousIndentation")
 @Composable
 fun Forecast(
+    lat: Double,
+    long: Double,
     navController: NavHostController,
     forecastViewModel: ForecastViewModel = hiltViewModel()
 ) {
+    var loadData by remember { mutableStateOf(true) }
+
+    if (loadData == true) {
+        forecastViewModel.getForecast(lat, long)
+    }
+
     val state = forecastViewModel._state.value
     Log.d("LIST", state!!.data.toString())
 
-    Column() {
+    Column(modifier = Modifier
+        .padding(bottom = 60.dp)) {
         when (state) {
 
             is Resource.Loading -> {
+                loadData = false
                 CircularProgressIndicator(
                     modifier = Modifier
                         .fillMaxSize()
@@ -40,6 +50,7 @@ fun Forecast(
             }
 
             is Resource.Success -> {
+                loadData = false
                 LazyColumn() {
                     items(state.data!!) {
                         for (item in it.list!!) {
@@ -51,6 +62,7 @@ fun Forecast(
             }
 
             is Resource.Error -> {
+                loadData = false
                 Log.d("StateError", state.message.toString())
 
             }

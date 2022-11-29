@@ -1,6 +1,11 @@
 package com.example.weatherapp.ViewModels
 
+import android.content.Context
+import android.content.pm.PackageManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.*
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.weatherapp.domain.Domain.weatherModel.CurrentConditionsDataModel
@@ -16,12 +21,11 @@ class CurrentConditionsViewModel @Inject constructor(private val weatherReposito
 
     val _state: MutableState<Resource<CurrentConditionsDataModel>?> = mutableStateOf(null)
 
-    init {
+    fun getWeather(lat : Double, long : Double) {
         viewModelScope.launch {
-            weatherRepository.getWeather().collect {
+            weatherRepository.getWeather(latt = lat, longg = long).collect {
                 _state.value = it
             }
         }
     }
-
 }

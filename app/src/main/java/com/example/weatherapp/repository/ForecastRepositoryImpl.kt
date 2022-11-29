@@ -11,9 +11,9 @@ import javax.inject.Inject
 
 class ForecastRepositoryImpl@Inject constructor(private val  apiService : ApiService) : ForecastRepository {
 
-    override suspend fun getForecast() : Flow<Resource<List<ForecastModel>>> = flow {
+    override suspend fun getForecast(latt: Double, longg: Double) : Flow<Resource<List<ForecastModel>>> = flow {
         emit(Resource.Loading())
-        val response = apiService.getForecastData()
+        val response = apiService.getForecastData(lat = latt, lon = longg)
         try {
             if (response.isSuccessful){
                 emit(Resource.Success(listOf(response.body()!!)))

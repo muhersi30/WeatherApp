@@ -10,9 +10,9 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class WeatherRepositoryImpl@Inject constructor(private val  apiService : ApiService) : WeatherRepository {
-    override suspend fun getWeather(): Flow<Resource<CurrentConditionsDataModel>> = flow {
+    override suspend fun getWeather(latt: Double, longg: Double): Flow<Resource<CurrentConditionsDataModel>> = flow {
         emit(Resource.Loading())
-        val response = apiService.getCurrentWeatherData()
+        val response = apiService.getCurrentWeatherData(lat = latt, long = longg)
         try {
             if (response.isSuccessful){
                 emit(Resource.Success(response.body()!!))
